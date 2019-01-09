@@ -1,0 +1,29 @@
+{
+    "name": "ldaplookup",
+    "version": "1.0.0",
+    "description": "LDAP lookup library for node.js",
+    "main": "index.js",
+    "directories": {
+        "lib": "lib",
+        "test": "test/**/*.js"
+    },
+    "scripts": {
+        "test": "mocha"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/foxbit19/ldaplookup.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/foxbit19/ldaplookup/issues"
+    },
+    "homepage": "https://github.com/foxbit19/ldaplookup#readme",
+    "devDependencies": {
+        "chai": "^4.2.0",
+        "chai-string": "^1.5.0",
+        "mocha": "^5.2.0",
+        "stub-spawn-once": "^2.3.0"
+    }
+}
