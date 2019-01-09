@@ -15,7 +15,7 @@ npm i --save ldaplookup
 const ldaplookup = require('ldaplookup');
 
 // lookup ldap servers
-const addresses = ldaplookup('your.ldapdomain');
+const addresses = await ldaplookup('your.ldapdomain');
 
 // print the first ip address found
 console.log(`First ldap server found: ${addresses[0]}`);
