@@ -23,6 +23,21 @@ const addresses = await ldaplookup('your.ldapdomain');
 console.log(`First ldap server found: ${addresses[0]}`);
 ```
 
+### Types
+
+You can also use the library through provided definition types.
+
+```ts
+// load the library
+import * as ldaplookup from 'ldaplookup';
+
+// lookup ldap servers
+const addresses: string[] = await ldaplookup('your.ldapdomain');
+
+// print the first ip address found
+console.log(`First ldap server found: ${addresses[0]}`);
+```
+
 ## Versioning
 
 We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/foxbit19/ldaplookup/tags). 
