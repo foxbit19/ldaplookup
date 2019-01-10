@@ -9,7 +9,7 @@ describe('ldaplookup', async () => {
 
     it('should return address array is command is executed correctly', async () => {
 
-        stubSpawnOnce('nslookup -type=srv _ldap._tcp.dom.local', 0, require('./correct_output'), null);
+        stubSpawnOnce('nslookup -type=srv _ldap._tcp.dom.local', null, require('./correct_output'), null);
 
         const addresses = await ldaplookup('dom.local');
 
@@ -17,18 +17,20 @@ describe('ldaplookup', async () => {
 
     });
 
-    it('should throw an error if there\'s something in stderr', async () => {
+    it('should return address array even if there\'s something in stderr but error code is null', async () => {
 
-        stubSpawnOnce('nslookup -type=srv _ldap._tcp.wrong-domain', 0, null, 'Something bad happened!');
+        stubSpawnOnce('nslookup -type=srv _ldap._tcp.wrong-domain', null, require('./correct_output'), 'Non-authoritative answer:');
 
         let caughtError = null;
+        let addresses = null;
         try {
-            await ldaplookup('wrong-domain');
+            addresses = await ldaplookup('wrong-domain');
         } catch (error) {
             caughtError = error;
         }
 
-        assert.equal(caughtError, 'Something bad happened!');
+        assert.isNull(caughtError);
+        assert.deepEqual(addresses, ['192.168.190.1', '192.168.190.2', '192.168.121.10', '192.168.121.1']);
 
     });
 
