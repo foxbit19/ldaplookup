@@ -1,8 +1,9 @@
 {
     "name": "ldaplookup",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "LDAP lookup library for node.js",
     "main": "index.js",
+    "types": "./types/index.d.ts",
     "directories": {
         "lib": "lib",
         "test": "test/**/*.js"
