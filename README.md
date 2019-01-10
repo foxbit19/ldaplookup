@@ -33,9 +33,6 @@ import * as ldaplookup from 'ldaplookup';
 
 // lookup ldap servers
 const addresses: string[] = await ldaplookup('your.ldapdomain');
-
-// print the first ip address found
-console.log(`First ldap server found: ${addresses[0]}`);
 ```
 
 ## Versioning
