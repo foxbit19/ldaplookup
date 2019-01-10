@@ -9,7 +9,7 @@ describe('ldaplookup', async () => {
 
     it('should return address array is command is executed correctly', async () => {
 
-        stubSpawnOnce('nslookup -type=srv _ldap._tcp.dom.local', null, require('./correct_output'), null);
+        stubSpawnOnce('nslookup -type=all _ldap._tcp.dom.local', null, require('./correct_output'), null);
 
         const addresses = await ldaplookup('dom.local');
 
@@ -19,7 +19,7 @@ describe('ldaplookup', async () => {
 
     it('should return address array even if there\'s something in stderr but error code is null', async () => {
 
-        stubSpawnOnce('nslookup -type=srv _ldap._tcp.wrong-domain', null, require('./correct_output'), 'Non-authoritative answer:');
+        stubSpawnOnce('nslookup -type=all _ldap._tcp.wrong-domain', null, require('./correct_output'), 'Non-authoritative answer:');
 
         let caughtError = null;
         let addresses = null;
@@ -36,7 +36,7 @@ describe('ldaplookup', async () => {
 
     it('should throw an error if exit code is not 0', async () => {
 
-        stubSpawnOnce('nslookup -type=srv _ldap._tcp.another-domain', 1, null, null);
+        stubSpawnOnce('nslookup -type=all _ldap._tcp.another-domain', 1, null, null);
 
         let caughtError = null;
         try {
