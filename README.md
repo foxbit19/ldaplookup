@@ -1,5 +1,7 @@
 # LDAP Lookup
 
+[![Build Status](https://travis-ci.org/foxbit19/ldaplookup.svg?branch=master)](https://travis-ci.org/foxbit19/ldaplookup)
+
 LDAP lookup library for node.js
 
 ## Installing
