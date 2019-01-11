@@ -16,7 +16,7 @@
         "url": "git+https://github.com/foxbit19/ldaplookup.git"
     },
     "author": "",
-    "license": "ISC",
+    "license": "MIT",
     "bugs": {
         "url": "https://github.com/foxbit19/ldaplookup/issues"
     },
